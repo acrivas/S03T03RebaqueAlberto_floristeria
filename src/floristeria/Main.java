@@ -3,7 +3,10 @@ package floristeria;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		FloristsModel model = new FloristsModel("Floristería Margarita");
+		FloristsView view = new FloristsView();
+		
 
 	}
 
