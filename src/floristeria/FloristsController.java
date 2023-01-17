@@ -26,4 +26,9 @@ public class FloristsController {
     public void eliminateTicket(int ticketNumber) {
     	model.removeTicketFromList(ticketNumber);
       }
+    
+    @Override
+	public String toString() {
+		return "FloristsController [model=" + model + ", view=" + view + "]";
+	}
 }

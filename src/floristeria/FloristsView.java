@@ -28,4 +28,11 @@ public class FloristsView {
         System.out.println("Imprime el valor total de todos los tickets");
     }
 
+	@Override
+	public String toString() {
+		return "FloristsView [name=" + name + "]";
+	}
+	
+	
+
 }

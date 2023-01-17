@@ -12,19 +12,19 @@ public class FloristsModel {
     }
     
     public void addToStock(StockItem item) {
-      System.out.println("Artículo añadido al stock");
+      System.out.println("Artículo " + item + " añadido al stock");
     }
     
     public void removeFromStock(int sku) {
-      System.out.println("Artículo eliminado del stock");
+      System.out.println("Artículo sku=" + sku + " eliminado del stock");
     }
     
     public void addTicketToList(Ticket ticket) {
-      System.out.println("Ticket archivado");
+      System.out.println("Ticket creado y archivado");
     }
     
     public void removeTicketFromList(int ticketNumber) {
-      System.out.println("Ticket eliminado");
+      System.out.println("Ticket " + ticketNumber + " eliminado");
     }
     
     public static String getName() {
@@ -34,5 +34,12 @@ public class FloristsModel {
     public double getStockValue() {
         return stockValue;
     }
+
+	@Override
+	public String toString() {
+		return "FloristsModel [stockValue=" + stockValue + ", ticketsValue=" + ticketsValue + "]";
+	}
+    
+    
     
 }
