@@ -13,6 +13,10 @@ public class Main {
 		controller.createTicket();
 		controller.eliminateTicket(1);
 	
+		controller.showFullStock();
+		controller.showSummaryStock();
+		controller.showTickets();
+		controller.showTicketsValue();
 	}
 
 }

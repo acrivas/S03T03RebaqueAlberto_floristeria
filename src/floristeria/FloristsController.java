@@ -27,6 +27,22 @@ public class FloristsController {
     	model.removeTicketFromList(ticketNumber);
       }
     
+    public void showFullStock() {
+    	view.printFullStock();
+    }
+    
+    public void showSummaryStock() {
+    	view.printItems();
+    }
+    
+    public void showTickets() {
+    	view.printTickets();
+    }
+    
+    public void showTicketsValue () {
+    	view.printTicketsValue();
+    }
+    
     @Override
 	public String toString() {
 		return "FloristsController [model=" + model + ", view=" + view + "]";

@@ -32,7 +32,5 @@ public class FloristsView {
 	public String toString() {
 		return "FloristsView [name=" + name + "]";
 	}
-	
-	
 
 }
