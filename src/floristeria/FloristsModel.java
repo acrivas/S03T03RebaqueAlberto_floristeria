@@ -24,7 +24,8 @@ public class FloristsModel {
     }
     
     public void removeTicketFromList(int ticketNumber) {
-      System.out.println("Ticket " + ticketNumber + " eliminado");
+      System.out.println("Ticket " + ticketNumber + ""
+      		+ " eliminado");
     }
     
     public static String getName() {
