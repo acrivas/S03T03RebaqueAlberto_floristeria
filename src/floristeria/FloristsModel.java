@@ -1,5 +1,12 @@
 package floristeria;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class FloristsModel {
 	
 	private static String name;
@@ -11,8 +18,16 @@ public class FloristsModel {
         this.stockValue = 0;
     }
     
-    public void addToStock(StockItem item) {
-      System.out.println("Artículo " + item + " añadido al stock");
+    public void addToStock(StockItem item) throws IOException {
+    	Path fileNamePath = Paths.get(System.getProperty("user.home"), FloristsModel.getName(), "stock.txt");
+    	String fileNameString = fileNamePath.toString();
+    	//Falta método para crear el directorio donde se guardará el archivo stock.txt
+//    	String fileNameString = "C:\\Floristeria_Margarita\\stock.txt";
+    	FileWriter fileWriter = new FileWriter(fileNameString, true);
+    	PrintWriter printWriter = new PrintWriter(fileWriter);
+    	printWriter.print(item.getSku() + " " + item.getType() + " " + item.getDescr() + " " + item.getValue() + " " + 1);
+    	printWriter.close();
+    	System.out.println("Artículo " + item + " añadido al stock");
     }
     
     public void removeFromStock(int sku) {

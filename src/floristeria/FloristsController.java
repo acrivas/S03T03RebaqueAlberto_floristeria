@@ -1,5 +1,7 @@
 package floristeria;
 
+import java.io.IOException;
+
 public class FloristsController {
 	private FloristsModel model;
     private FloristsView view;
@@ -9,7 +11,7 @@ public class FloristsController {
         this.view = view;
     }
     
-    public void createStockItem(String type, String descr, double price) {
+    public void createStockItem(String type, String descr, double price) throws IOException {
     	StockItem stockItem = new StockItem (type, descr, price);
         model.addToStock(stockItem);
     }
