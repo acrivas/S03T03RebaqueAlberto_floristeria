@@ -1,3 +1,4 @@
+
 package floristeria;
 
 import java.io.BufferedWriter;
@@ -15,11 +16,11 @@ public class FloristsModel {
     
     public FloristsModel(String name) {
         this.name = name;
-        this.stockValue = 0;
+        this.stockValue = 0d;
     }
     
     public void addToStock(StockItem item) throws IOException {
-    	Path fileNamePath = Paths.get(System.getProperty("user.home"), FloristsModel.getName(), "stock.txt");
+    	Path fileNamePath = Paths.get(System.getProperty("user.home"), FloristsModel.getName(), FloristsModel.getName() + "_stock.txt");
     	String fileNameString = fileNamePath.toString();
     	//Falta método para crear el directorio donde se guardará el archivo stock.txt
 //    	String fileNameString = "C:\\Floristeria_Margarita\\stock.txt";
@@ -56,6 +57,17 @@ public class FloristsModel {
 		return "FloristsModel [stockValue=" + stockValue + ", ticketsValue=" + ticketsValue + "]";
 	}
     
+	public void createMasterFile (String name) {
+		System.out.println("Archivo master creado");
+	}
+	
+	public void createStockFile(String name) {
+		System.out.println("Archivo stock creado");
+	}
+	
+	public void createTicketsFile(String name) {
+		System.out.println("Archivo tickets creado");
+	}
     
     
 }

@@ -6,9 +6,12 @@ public class FloristsController {
 	private FloristsModel model;
     private FloristsView view;
     
-    public FloristsController(FloristsModel model, FloristsView view) {
-        this.model = model;
-        this.view = view;
+    public FloristsController(String name) {
+        FloristsModel model = new FloristsModel(name);
+        FloristsView view = new FloristsView(name);
+        model.createMasterFile(name);
+        model.createStockFile(name);
+        model.createTicketsFile(name);
     }
     
     public void createStockItem(String type, String descr, double price) throws IOException {

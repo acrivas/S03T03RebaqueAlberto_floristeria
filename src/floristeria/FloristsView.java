@@ -4,8 +4,8 @@ public class FloristsView {
 	
 	private String name;
 	
-	public FloristsView() {
-		this.name = FloristsModel.getName();
+	public FloristsView(String name) {
+		this.name = name;
 	}
 	
 	public void printFullStock() {
