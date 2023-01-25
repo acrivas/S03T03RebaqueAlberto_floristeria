@@ -20,14 +20,9 @@ public class FloristsModel {
     }
     
     public void addToStock(StockItem item) throws IOException {
-    	Path fileNamePath = Paths.get(System.getProperty("user.home"), FloristsModel.getName(), FloristsModel.getName() + "_stock.txt");
-    	String fileNameString = fileNamePath.toString();
     	//Falta método para crear el directorio donde se guardará el archivo stock.txt
-//    	String fileNameString = "C:\\Floristeria_Margarita\\stock.txt";
-    	FileWriter fileWriter = new FileWriter(fileNameString, true);
-    	PrintWriter printWriter = new PrintWriter(fileWriter);
-    	printWriter.print(item.getSku() + " " + item.getType() + " " + item.getDescr() + " " + item.getValue() + " " + 1);
-    	printWriter.close();
+
+
     	System.out.println("Artículo " + item + " añadido al stock");
     }
     
@@ -57,7 +52,17 @@ public class FloristsModel {
 		return "FloristsModel [stockValue=" + stockValue + ", ticketsValue=" + ticketsValue + "]";
 	}
     
-	public void createMasterFile (String name) {
+	public void createMasterFile (String name) throws IOException {
+//		Path fileNamePath = Paths.get(System.getProperty("user.home"), "Floristerias", FloristsModel.getName(), FloristsModel.getName() + "_stock.txt");
+//		Path fileNamePath = Paths.get("C:\\Floristerias\\" + FloristsModel.getName() + "\\" + FloristsModel.getName() + "_stock.txt");
+		Path fileNamePath = Paths.get("C:\\Floristerias\\Floristeria_Margarita\\Floristeria_Margarita_stock.txt");
+//		String fileNameString = "C:\\Floristerias\\" + FloristsModel.getName() + "\\" + FloristsModel.getName() + "_stock.txt";
+		String fileNameString = fileNamePath.toString();
+		System.out.println(fileNameString);
+    	FileWriter fileWriter = new FileWriter(fileNameString, true);
+    	PrintWriter printWriter = new PrintWriter(fileWriter);
+    	printWriter.print("SKU          TYPE          DESCR          VALUE     UNITS");
+    	printWriter.close();
 		System.out.println("Archivo master creado");
 	}
 	

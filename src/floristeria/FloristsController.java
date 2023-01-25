@@ -6,9 +6,11 @@ public class FloristsController {
 	private FloristsModel model;
     private FloristsView view;
     
-    public FloristsController(String name) {
+    public FloristsController(String name) throws IOException {
         FloristsModel model = new FloristsModel(name);
         FloristsView view = new FloristsView(name);
+        this.model = model;
+        this.view = view;
         model.createMasterFile(name);
         model.createStockFile(name);
         model.createTicketsFile(name);

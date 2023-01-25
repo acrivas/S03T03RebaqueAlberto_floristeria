@@ -4,12 +4,10 @@ import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		FloristsModel model = new FloristsModel("Floristeria_Margarita");
-		FloristsView view = new FloristsView();
-		FloristsController controller = new FloristsController(model, view);
-		
+		FloristsController controller = new FloristsController("Floristeria_Margarita");
+				
 		try {
 			controller.createStockItem("árbol", "150", 200);
 		} catch (IOException e) {
