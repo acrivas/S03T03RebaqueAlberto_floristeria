@@ -3,9 +3,11 @@ package floristeria;
 public class FloristsView {
 	
 	private String name;
+	private final String PROGRAM_NAME;
 	
 	public FloristsView(String name) {
 		this.name = name;
+		this.PROGRAM_NAME = FloristsController.getPROGRAM_NAME();
 	}
 	
 	public void printFullStock() {

@@ -5,6 +5,7 @@ import java.io.IOException;
 public class FloristsController {
 	private FloristsModel model;
     private FloristsView view;
+    private final static String PROGRAM_NAME = "FlowerPower Management";
     
     public FloristsController(String name) throws IOException {
         FloristsModel model = new FloristsModel(name);
@@ -16,7 +17,11 @@ public class FloristsController {
         model.createTicketsFile(name);
     }
     
-    public void createStockItem(String type, String descr, double price) throws IOException {
+    public static String getPROGRAM_NAME() {
+		return PROGRAM_NAME;
+	}
+
+	public void createStockItem(String type, String descr, double price) throws IOException {
     	StockItem stockItem = new StockItem (type, descr, price);
         model.addToStock(stockItem);
     }
