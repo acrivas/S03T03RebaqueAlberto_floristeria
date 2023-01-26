@@ -25,11 +25,13 @@ public class FloristsModel {
         this.PROGRAM_NAME = FloristsController.getPROGRAM_NAME();
     }
     
-    public void addToStock(StockItem item) throws IOException {
-    	//Falta método para crear el directorio donde se guardará el archivo stock.txt
-
-
-    	System.out.println("Artículo " + item + " añadido al stock");
+    public void addToStock(StockItem item, int units) throws IOException {
+    	Path stockPath = Paths.get(System.getProperty("user.home"), PROGRAM_NAME, name, name + "_stock.txt");
+    	FileWriter fileWriter = new FileWriter(stockPath.toString(), true);
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+		printWriter.print(item.getSku() + " " + item.getType() + "  " + item.getDescr() + "  " + item.getValue() + "   " + units + "\n");
+		printWriter.close();
+    	System.out.println(units + " unidad(es) del artículo " + item + " añadida(s) al stock");
     }
     
     public void removeFromStock(int sku) {
@@ -37,6 +39,7 @@ public class FloristsModel {
     }
     
     public void addTicketToList(Ticket ticket) {
+    	
       System.out.println("Ticket creado y archivado");
     }
     
@@ -66,46 +69,35 @@ public class FloristsModel {
 		File masterFile = new File(master);
 		masterFile.createNewFile();
 		System.out.println("Archivo maestro " + master + " creado");
-		FileWriter fileWriter = new FileWriter(master, true);
+		FileWriter fileWriter = new FileWriter(master);
 		PrintWriter printWriter = new PrintWriter(fileWriter);
 		printWriter.print("Floristería: " + name +"\n");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		printWriter.print(now);
 		printWriter.close();
-		
-//		File parentFolder = new File(System.getProperty("user.home") + File.separator + PROGRAM_NAME);
-//		File floristsFolder = new File(parentFolder, name);
-//		String floristsFolderString = floristsFolder.toString();
-//		boolean floristsFolderCreated = floristsFolder.mkdirs();
-//		System.out.println("Carpeta floristería: " + floristsFolderString);
-//		if (floristsFolderCreated) {
-//			String master = floristsFolderString + "\\" + name + "_master.txt";
-//			File masterFile = new File(master);
-//			boolean fileCreated = masterFile.createNewFile();
-//			if(fileCreated) {
-//				System.out.println("Archivo maestro " + master + " creado");
-//				FileWriter fileWriter = new FileWriter(master, true);
-//				PrintWriter printWriter = new PrintWriter(fileWriter);
-//				printWriter.print("SKU          TYPE          DESCR          VALUE     UNITS");
-//		    	printWriter.close();
-//			} else {
-//				System.out.println("El archivo maestro no se ha podido crear.");
-//			}
-//		} else {
-//			System.out.println("La carpeta " + floristsFolderString + " no se ha podido crear.");
-//		}
-			
-
 	}
 	
-	public void createStockFile(String name) {
-		System.out.println("Archivo stock creado");
+	public void createStockFile(String name) throws IOException {
+		Path stockPath = Paths.get(System.getProperty("user.home"), PROGRAM_NAME, name, name + "_stock.txt");
+		File stockFile = new File(stockPath.toString());
+		stockFile.createNewFile();
+		System.out.println("Archivo " + stockFile.toString() + " creado");
+		FileWriter fileWriter = new FileWriter(stockFile.toString());
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+		printWriter.print("SKU       TYPE   DESCR VALUE UNITS\n");
+		printWriter.close();
 	}
 	
-	public void createTicketsFile(String name) {
-		System.out.println("Archivo tickets creado");
+	public void createTicketsFile(String name) throws IOException {
+		Path ticketsPath = Paths.get(System.getProperty("user.home"), PROGRAM_NAME, name, name + "_tickets.txt");
+		File ticketsFile = new File(ticketsPath.toString());
+		ticketsFile.createNewFile();
+		System.out.println("Archivo " + ticketsFile.toString() + " creado");
+		FileWriter fileWriter = new FileWriter(ticketsFile.toString());
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+		printWriter.print("NO. VALUE");
+		printWriter.close();
 	}
-    
     
 }

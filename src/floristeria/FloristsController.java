@@ -21,9 +21,9 @@ public class FloristsController {
 		return PROGRAM_NAME;
 	}
 
-	public void createStockItem(String type, String descr, double price) throws IOException {
+	public void createStockItem(String type, String descr, double price, int units) throws IOException {
     	StockItem stockItem = new StockItem (type, descr, price);
-        model.addToStock(stockItem);
+        model.addToStock(stockItem, units);
     }
     
     public void eliminateStockItem(int sku) {
